@@ -34,7 +34,12 @@ def print_info():
 
     info = [
         "A tool for getting [b red]statistics[/b red] of the history of messages in the",
-        "[i cyan]telegram messenger[/i cyan]"
+        "[i cyan]telegram messenger[/i cyan]",
+        "",
+        "[bold purple]Author[/bold purple]: [bold underline]SkyGuy[/bold underline]",
+        "[bold purple]Link on github[/bold purple]: [bold underline]https://github.com/mr-skydev[/bold underline]",
+        "[bold purple]Link on Telegram[/bold purple]: [bold underline]https://t.me/skyguy[/bold underline]",
+        "If u have any questions or ideas, plz [bold green]chat me[/bold green] ❤"
     ]
 
     max_length = max([len(raw_info(line.strip())) for line in info])
@@ -46,12 +51,7 @@ def print_info():
     print(border)
 
 
-def print_commands():
-    ...
-
-
 if __name__ == "__main__":
     print_name()
     print_info()
-    print_commands()
     input()
