@@ -56,7 +56,7 @@ def print_info():
 
 def print_commands():
     rich.print("\n[bold red underline]COMMANDS:[/bold red underline]")
-    rich.print("- [bold purple][1][/bold purple] show the most common word")
+    rich.print("- [bold purple][1][/bold purple] show top 10 the most common words")
     rich.print("- [bold purple][2][/bold purple] show the day on which the most messages were sent")
     rich.print("- [bold purple][3][/bold purple] show the average number of messages per day")
     rich.print("- [bold purple][4][/bold purple] show the most active interlocutor")
