@@ -47,11 +47,22 @@ def print_info():
 
     print(border)
     for line in info:
-        rich.print(get_info(line))
+        if line:
+            rich.print(get_info(line))
+        else:
+            print("| " + "-" * max_length + " |")
     print(border)
+
+
+def print_commands():
+    rich.print("\n[bold red underline]COMMANDS:[/bold red underline]")
+    rich.print("- [bold purple][1][/bold purple] show the most common word")
+    rich.print("- [bold purple][2][/bold purple] show the day on which the most messages were sent")
+    rich.print("- [bold purple][3][/bold purple] show the average number of messages per day")
+    rich.print("- [bold purple][4][/bold purple] show the most active interlocutor")
 
 
 if __name__ == "__main__":
     print_name()
     print_info()
-    input()
+    print_commands()
