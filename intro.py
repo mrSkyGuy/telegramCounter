@@ -39,7 +39,7 @@ def print_info():
         "[bold purple]Author[/bold purple]: [bold underline]SkyGuy[/bold underline]",
         "[bold purple]Link on github[/bold purple]: [bold underline]https://github.com/mr-skydev[/bold underline]",
         "[bold purple]Link on Telegram[/bold purple]: [bold underline]https://t.me/skyguy[/bold underline]",
-        "If u have any questions or ideas, plz [bold green]chat me[/bold green] ❤"
+        "If u have any questions or ideas, plz [bold green]chat me[/bold green] <3"
     ]
 
     max_length = max([len(raw_info(line.strip())) for line in info])
