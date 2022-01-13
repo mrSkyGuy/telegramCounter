@@ -25,7 +25,7 @@ def get_most_common_words():
     top10 = [(key, words_count[key]) for key in sorted_keys[:10]]
     result = ""
     for i, item in enumerate(top10):
-        result += f"{i + 1}) «{item[0]}»: {item[1]}\n"
+        result += f"  {i + 1}) «{item[0]}»: {item[1]}\n"
     
     return result
 
@@ -43,7 +43,7 @@ def get_most_active_days():
     top10 = [(key, messages_count[key]) for key in sorted_keys[:10]]
     result = ""
     for i, item in enumerate(top10):
-        result += f"{i + 1}) «{item[0]}»: {item[1]}\n"
+        result += f"  {i + 1}) «{item[0]}»: {item[1]}\n"
     
     return result
 
@@ -59,8 +59,26 @@ def get_average_messages_per_day():
     just_nums = list(messages_count.values())
     average = sum(just_nums) / len(just_nums)
 
-    return f"Average number of messages per day: {int(average)}"
+    return f"  Average number of messages per day: {int(average)}"
 
+
+def get_most_active_interlocutor():
+    messages_count = dict()
+    for message in messages["messages"]:
+        if message["type"] == "message":
+            user_id = message["from_id"]
+            user_name = message["from"]
+
+            if (user_id, user_name) not in messages_count.keys():
+                messages_count[(user_id, user_name)] = 0
+            messages_count[(user_id, user_name)] += 1
+    
+    result = ""
+    summa = sum(list(messages_count.values()))
+    for key in messages_count.keys():
+        result += f"  {key[1]}: {messages_count[key]} messages ({round(messages_count[key] / summa * 100, 2)}%)\n"
+    
+    return result
 
 if __name__ == '__main__':
     intro.print_name()
@@ -79,3 +97,5 @@ if __name__ == '__main__':
         print(get_most_active_days())
     elif command == "3":
         print(get_average_messages_per_day())
+    elif command == "4":
+        print(get_most_active_interlocutor())
