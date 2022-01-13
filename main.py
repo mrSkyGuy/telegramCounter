@@ -48,6 +48,20 @@ def get_most_active_days():
     return result
 
 
+def get_average_messages_per_day():
+    messages_count = dict()
+    for message in messages["messages"]:
+        date = message["date"][:10]
+        if date not in messages_count.keys():
+            messages_count[date] = 0
+        messages_count[date] += 1
+    
+    just_nums = list(messages_count.values())
+    average = sum(just_nums) / len(just_nums)
+
+    return f"Average number of messages per day: {int(average)}"
+
+
 if __name__ == '__main__':
     intro.print_name()
     intro.print_info()
@@ -63,3 +77,5 @@ if __name__ == '__main__':
         print(get_most_common_words())
     elif command == "2":
         print(get_most_active_days())
+    elif command == "3":
+        print(get_average_messages_per_day())
