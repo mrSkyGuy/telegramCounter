@@ -62,6 +62,7 @@ def print_commands():
     rich.print("- [bold purple][2][/bold purple] show top 10 days on which the most messages were sent")
     rich.print("- [bold purple][3][/bold purple] show average number of messages per day")
     rich.print("- [bold purple][4][/bold purple] show most active interlocutor")
+    rich.print("- [bold purple][5][/bold purple] show +- time it will take to read the full conversation")
 
 
 if __name__ == "__main__":
