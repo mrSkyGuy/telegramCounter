@@ -6,7 +6,7 @@ with open("result.json", encoding="utf8") as file:
     messages = json.load(file)
 
 
-def get_most_common_word():
+def get_most_common_words():
     words_count = dict()  # Словарь для подсчета слов
     for message in messages["messages"]:
         if isinstance(message["text"], list):  # Если это не простой текст, то игнорим
@@ -42,4 +42,4 @@ if __name__ == '__main__':
         print("There is no such command!")
     
     if command == "1":
-        print(get_most_common_word())
+        print(get_most_common_words())
