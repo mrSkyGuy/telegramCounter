@@ -35,6 +35,8 @@ def print_info():
     info = [
         "A tool for getting [b red]statistics[/b red] of the history of messages in the",
         "[i cyan]telegram messenger[/i cyan]",
+        "You have to export the chat history via the desktop version as '.json'. Then let me know",
+        "where the file is by sending me the absolute path",
         "",
         "[bold purple]Author[/bold purple]: [bold underline]SkyGuy[/bold underline]",
         "[bold purple]Link on github[/bold purple]: [bold underline]https://github.com/mr-skydev[/bold underline]",

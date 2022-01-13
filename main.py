@@ -1,9 +1,6 @@
 import intro
 import json
-
-
-with open("result.json", encoding="utf8") as file:
-    messages = json.load(file)
+import os
 
 
 def get_most_common_words():
@@ -83,8 +80,19 @@ def get_most_active_interlocutor():
 if __name__ == '__main__':
     intro.print_name()
     intro.print_info()
-    intro.print_commands()
 
+    # Получение файла
+    while True:
+        path = input("Enter the absolute path to the saved chat history json-file: ")
+        if os.path.exists(path):
+            break
+        print("The file could not be found, please try again")
+
+    with open(path, encoding="utf8") as file:
+        messages = json.load(file)
+
+    intro.print_commands()
+    # Получение команды
     while True:
         command = input("Enter the number of the required command: ")
         if command in "1234":
