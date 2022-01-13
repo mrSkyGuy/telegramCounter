@@ -30,6 +30,24 @@ def get_most_common_words():
     return result
 
 
+def get_most_active_days():
+    messages_count = dict()
+    for message in messages["messages"]:
+        date = message["date"][:10]
+        if date not in messages_count.keys():
+            messages_count[date] = 0
+        messages_count[date] += 1
+    
+    sorted_keys = sorted(messages_count.keys(), key=lambda x: messages_count[x], reverse=True)
+
+    top10 = [(key, messages_count[key]) for key in sorted_keys[:10]]
+    result = ""
+    for i, item in enumerate(top10):
+        result += f"{i + 1}) «{item[0]}»: {item[1]}\n"
+    
+    return result
+
+
 if __name__ == '__main__':
     intro.print_name()
     intro.print_info()
@@ -43,3 +61,5 @@ if __name__ == '__main__':
     
     if command == "1":
         print(get_most_common_words())
+    elif command == "2":
+        print(get_most_active_days())
