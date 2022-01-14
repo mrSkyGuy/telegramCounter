@@ -77,6 +77,23 @@ def get_most_active_interlocutor():
     
     return result
 
+
+def get_time_to_read():
+    TIME_FOR_READ_WORD = 0.43675
+    time_sum = 0
+    for message in messages["messages"]:
+        if not isinstance(message["text"], list):
+            words = message["text"].split()
+            time_sum += len(words) * TIME_FOR_READ_WORD
+        if message.get("media_type") in ["voice_message", "video_file", "video_message"]:
+            time_sum += message.get("duration_seconds", 0.5)
+    
+    return f"  To read the entire correspondence, you will need +- {round(time_sum)} seconds." \
+           + f"\n  This is {round(time_sum / 60)} minutes or {round(time_sum / 60 / 60, 1)} hours" \
+           + f" or {round(time_sum / 60 / 60 / 24, 2)} days ;)" \
+           + "\n  !!This is not an exact value!!"
+
+
 if __name__ == '__main__':
     intro.print_name()
     intro.print_info()
@@ -95,7 +112,7 @@ if __name__ == '__main__':
     # Получение команды
     while True:
         command = input("Enter the number of the required command: ")
-        if command in "1234":
+        if command in "12345":
             break
         print("There is no such command!")
     
@@ -107,3 +124,5 @@ if __name__ == '__main__':
         print(get_average_messages_per_day())
     elif command == "4":
         print(get_most_active_interlocutor())
+    elif command == "5":
+        print(get_time_to_read())
