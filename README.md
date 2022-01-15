@@ -22,3 +22,13 @@ When you have selected the json extension, you need to click on the **«Export»
 ### ***Fifth step:***
 When the download is finished, another window will open where you will need to click on the **«show my data»** button  
 ![show my data button](screenshots/show_my_data.png)
+
+### ***Sixth step:***
+Then explorer will open. U need to copy path to the **«result.json»** file  
+![copy path](screenshots/copy_path.png)
+
+### ***Almost finish:***
+Now it remains to run the program itself. To do this, go to the project folder.   
+Write the ```pip install rich``` command. This is one of the dependencies. 
+Then you can run the  utility: ```python main.py```  
+> Previously, it means that you have executed the ```git clone https://github.com/mr-SkyDev/telegramCounter.git``` command
