@@ -5,6 +5,12 @@ import os
 
 def get_most_common_words():
     words_count = dict()  # Словарь для подсчета слов
+    ignore_list = [  # Слова для игнорирования
+        "я", "а", "ты", "ну", "что", "в", "и", "не", "меня", "у", "на", "это", "то", 
+        "как", "так", "с", "тебя", "мне", "да", "она", "когда", "если", "тебе", "все", 
+        "по", "уже", "бы", "но", "он", ",", "тоже", "тип", "за", "просто", "будет", 
+        "же", "ща", "че", "там"
+    ]
     for message in messages["messages"]:
         if isinstance(message["text"], list):  # Если это не простой текст, то игнорим
             continue
@@ -12,6 +18,9 @@ def get_most_common_words():
         words = text.split()
 
         for word in words:
+            word = word.capitalize()
+            if word.lower() in ignore_list:  # Если слово в игнорируемых словах,
+                continue  # то пропускаем
             if word not in words_count.keys():
                 words_count[word] = 0
             words_count[word] += 1
